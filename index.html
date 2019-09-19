@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Rock Paper Scissors</h1>
+    <h2>Paper Beats Rock. Rock Beats Paper. Scissors Beat Paper</h2>
+    <h2>Goodluck !</h2>
+    <p>Choose you input:</p>
+    <p>Type R for Rock, P for Paper, S for scissors</p>
+    <p id= "user-input-p"></p>
+    <p id = "computer-input-p"></p>
+    <p id = "winner-p"></p>
+    <p id = "score-p"></p>
+
+    <script>
+
+    var computerInputArr = ["Rock", "Paper", "Scissors"];
+
+    var userInputP = document.getElementById("user-input-p");
+    var computerInputP = document.getElementById("computer-input-p");
+    var userinput = "";
+    var computerInput = "";
+    var userScore = 0;
+    var computerScore = 0;
+    var ties = 0;
+    var winnerP = document.getElementById("winner-p");
+    var scoreP = document.getElementById("score-p");
+    
+    
+    
+    function computerChoice(){
+        computerInput = computerInputArr[Math.floor(Math.random() * computerInputArr.length)]
+    }
+
+   
+     document.onkeyup = function (event) {
+            if (event.key == "r"){
+                userInput = "Rock"
+                userInputP.textContent = "You chose " + userInput; 
+                computerChoice()
+                computerInputP.textContent = "The computer chose " + computerInput;
+                gameLogic();
+                console.log("UserScore " + userScore + " ComputerScore " + computerScore + " Ties " + ties)
+            }
+            if (event.key == "s") {
+             userInput = "Scissors"
+              userInputP.textContent = "You chose " + userInput; 
+               computerChoice()
+                computerInputP.textContent = "The computer chose " + computerInput;
+                gameLogic();
+                console.log("UserScore " + userScore + " ComputerScore " + computerScore + " Ties " + ties)
+         }
+            if (event.key == "p") {
+             userInput = "Paper"
+              userInputP.textContent = "You chose " + userInput; 
+               computerChoice()
+                computerInputP.textContent = "The computer chose " + computerInput;
+                gameLogic();
+                console.log("UserScore " + userScore + " ComputerScore " + computerScore + " Ties " + ties)
+         }
+            
+        }
+    
+   
+
+        function gameLogic(){
+            if (computerInput == userInput){
+                
+                ties ++;
+                
+            } else if (computerInput == "Paper" && userInput == "Rock"){
+                computerScore++;
+            } else if (computerInput == "Paper" && userInput == "Scissors") {
+                userScore++;
+            } else if (computerInput == "Rock" && userInput == "Scissors") {
+                computerScore++;
+            } else if (computerInput == "Rock" && userInput == "Paper") {
+                userScore++;
+            } else if (computerInput == "Scissors" && userInput == "Paper") {
+                computerScore++;
+            } else if (computerInput == "Scissors" && userInput == "Rock") {
+                userScore++;
+            } 
+
+            scoreP.textContent = "UserScore " + userScore + " ComputerScore " + computerScore + " Ties " + ties;
+        }
+
+        
+    
+    </script>
+</body>
+</html>
