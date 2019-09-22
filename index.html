@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
@@ -12,10 +13,14 @@
     <h2>Goodluck !</h2>
     <p>Choose you input:</p>
     <p>Type R for Rock, P for Paper, S for scissors</p>
+    <span id="user-span">UserScore: 0</span>
+    <span id="computer-span"> ComputerScore: 0</span>
+    <span id="ties-span"> Ties: 0</span>
     <p id= "user-input-p"></p>
     <p id = "computer-input-p"></p>
     <p id = "winner-p"></p>
     <p id = "score-p"></p>
+    
 
     <script>
 
@@ -30,6 +35,10 @@
     var ties = 0;
     var winnerP = document.getElementById("winner-p");
     var scoreP = document.getElementById("score-p");
+    var userSpan = document.getElementById("user-span");
+    var computerSpan = document.getElementById("computer-span");
+    var tiesSpan = document.getElementById("ties-span");
+
     
     
     
@@ -72,22 +81,39 @@
             if (computerInput == userInput){
                 
                 ties ++;
-                
+                winnerP.textContent = "Its a tie";
+                winnerP.style.color = "purple";
+
             } else if (computerInput == "Paper" && userInput == "Rock"){
                 computerScore++;
+                winnerP.textContent = "You lost!";
+                winnerP.style.color = "red";
             } else if (computerInput == "Paper" && userInput == "Scissors") {
                 userScore++;
+                winnerP.textContent = "You won!";
+                winnerP.style.color = "green";
             } else if (computerInput == "Rock" && userInput == "Scissors") {
                 computerScore++;
+                winnerP.textContent = "You lost!";
+                winnerP.style.color = "red";
             } else if (computerInput == "Rock" && userInput == "Paper") {
                 userScore++;
+                winnerP.textContent = "You won!";
+                winnerP.style.color = "green";
             } else if (computerInput == "Scissors" && userInput == "Paper") {
                 computerScore++;
+                winnerP.textContent = "You lost!";
+                winnerP.style.color = "red";
             } else if (computerInput == "Scissors" && userInput == "Rock") {
                 userScore++;
+                winnerP.textContent = "You won!";
+                winnerP.style.color = "green";
             } 
 
-            scoreP.textContent = "UserScore " + userScore + " ComputerScore " + computerScore + " Ties " + ties;
+            //scoreP.textContent = "UserScore " + userScore + " ComputerScore " + computerScore + " Ties " + ties;
+            userSpan.textContent = "Your score: " + userScore;
+            computerSpan.textContent = " Computer score: " + computerScore;
+            tiesSpan.textContent = " Ties: " + ties;
         }
 
         

@@ -1,0 +1,28 @@
+#user-input-p{
+    color: green;
+    font-size: 2em;
+}
+#computer-input-p{
+    color:red;
+    font-size:2em;
+}
+#winner-p{
+    font-size: 2em;
+}
+
+#user-span {
+    color: green;
+    font-size: 2em;
+}
+
+#computer-span{
+    color: red;
+    font-size: 2em;
+
+}
+
+#ties-span{
+    color: purple;
+    font-size: 2em;
+
+}
